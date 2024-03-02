@@ -4,9 +4,10 @@ import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SharedModule } from '../shared/shared.module';
+import { NavItemComponent } from './components/nav-item/nav-item.component';
 
 @NgModule({
-  declarations: [NavigationComponent],
+  declarations: [NavigationComponent, NavItemComponent],
   imports: [CommonModule, AuthModule, HttpClientModule, SharedModule],
   exports: [NavigationComponent],
   providers: [

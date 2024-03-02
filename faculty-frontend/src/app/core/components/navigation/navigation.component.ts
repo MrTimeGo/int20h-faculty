@@ -1,7 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '@auth0/auth0-angular';
-import { map, take } from 'rxjs';
-import { getRole } from '../../../shared/components/utils/roles';
 
 @Component({
   selector: 'app-navigation',
@@ -10,5 +8,10 @@ import { getRole } from '../../../shared/components/utils/roles';
 })
 export class NavigationComponent {
   auth = inject(AuthService);
-  role = getRole(this.auth.user$.pipe(map((user) => user!)));
+
+  constructor() {
+    this.auth.user$.subscribe((user) => {
+      console.log(user);
+    });
+  }
 }
