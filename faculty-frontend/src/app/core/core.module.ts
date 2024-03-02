@@ -5,10 +5,17 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { SharedModule } from '../shared/shared.module';
 import { NavItemComponent } from './components/nav-item/nav-item.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [NavigationComponent, NavItemComponent],
-  imports: [CommonModule, AuthModule, HttpClientModule, SharedModule],
+  imports: [
+    CommonModule,
+    AuthModule,
+    HttpClientModule,
+    SharedModule,
+    RouterModule,
+  ],
   exports: [NavigationComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

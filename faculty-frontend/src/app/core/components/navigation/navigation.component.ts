@@ -9,6 +9,33 @@ import { AuthService } from '@auth0/auth0-angular';
 export class NavigationComponent {
   auth = inject(AuthService);
 
+  navItems = [
+    {
+      path: 'students',
+      icon: 'group',
+      name: 'Students',
+      roles: ['teacher'],
+    },
+    {
+      path: 'staticstics',
+      icon: 'insert_chart',
+      name: 'Staticstics',
+      roles: ['teacher'],
+    },
+    {
+      path: 'lessons',
+      icon: 'featured_play_list',
+      name: 'Lessons',
+      roles: ['teacher', 'student'],
+    },
+    {
+      path: 'announcements',
+      icon: 'notifications',
+      name: 'Announcements',
+      roles: ['teacher'],
+    },
+  ];
+
   constructor() {
     this.auth.user$.subscribe((user) => {
       console.log(user);
