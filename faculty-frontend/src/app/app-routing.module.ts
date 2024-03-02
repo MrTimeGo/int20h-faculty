@@ -5,7 +5,7 @@ import { AuthGuard } from '@auth0/auth0-angular';
 const routes: Routes = [
   {
     path: 'lessons',
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
      loadChildren: ()=> import('./modules/lesson/lesson.module').then((m)=>m.LessonModule)}
 ];
 
