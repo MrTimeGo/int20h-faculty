@@ -13,8 +13,15 @@
     <button (click)="auth.loginWithRedirect()">Sign in</button>
     }
   </div>
-  <div class="flex flex-col">
+  <div class="flex flex-col gap-y-2">
     <span>Menu</span>
-    <app-nav-item></app-nav-item>
+    <div class="flex flex-col gap-y-6">
+      @for (nav of navItems; track $index) { @if (nav.roles.includes((auth.user$
+      | async)?.['app/roles']?.[0])) {
+      <app-nav-item
+        [navItemConfig]="{ iconName: nav.icon, name: nav.name, path: nav.path }"
+      ></app-nav-item>
+      } }
+    </div>
   </div>
 </div>
