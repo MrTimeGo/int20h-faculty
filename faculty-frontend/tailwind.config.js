@@ -27,6 +27,89 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     colors,
+    fontSize: {
+      /* 1rem = 16px */
+      h1: [
+        "60px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "800",
+        },
+      ],
+      h2: [
+        "44px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "700",
+        },
+      ],
+      h3: [
+        "36px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "700",
+        },
+      ],
+      h4: [
+        "26px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "600",
+        },
+      ],
+      h5: [
+        "22px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "500",
+        },
+      ],
+      body: [
+        "20px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "600",
+        },
+      ],
+      secondary: [
+        "1rem",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "500",
+        },
+      ],
+      "tags": [
+        "1rem",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "600",
+        },
+      ],
+      buttons: [
+        "24px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "600",
+        },
+      ],
+      "text-buttons": [
+        "20px",
+        {
+          lineHeight: "0%",
+          letterSpacing: "0",
+          fontWeight: "600",
+        },
+      ],
+    },
     extend: {},
   },
   plugins: [],
