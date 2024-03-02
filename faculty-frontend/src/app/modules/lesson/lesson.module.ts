@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LessonRoutingModule } from './lesson-routing.module';
+import { LessonListComponent } from './lesson-list/lesson-list.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LessonListComponent
+  ],
   imports: [
     CommonModule,
     LessonRoutingModule

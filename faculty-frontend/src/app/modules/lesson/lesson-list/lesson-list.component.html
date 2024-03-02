@@ -1,0 +1,22 @@
+<p class="text-h3">Lessons</p>
+
+<div class="flex flex-col gap-4">
+    <span class="grid grid-cols-2 text-body text-gray-30">
+        <span>Lesson name</span>
+        <span>Group</span>
+    </span>
+    <span class="flex flex-col gap-4">
+        @for (lesson of lessons$ | async; track $index) 
+        {
+            <span class="grid grid-cols-2 bg-gray-0 border rounded-[24px] p-4">
+                <span>{{lesson.name}}</span>
+                <span>
+                    @for (group of lesson.groups; track $index) 
+                    {
+                        <span>{{group}}</span>
+                    }
+                </span>
+            </span>
+        }
+    </span>
+</div>
