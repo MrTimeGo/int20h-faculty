@@ -1,0 +1,18 @@
+<div class="mt-12 flex flex-col">
+  <div class="grid grid-cols-8 gap-x-8 items-center">
+    <span class="text-h3 text-gray-70">Students</span>
+    <div class="col-span-5 relative">
+      <input type="text" placeholder="Search..." />
+      <button class="absolute top-1/2 -translate-y-1/2 right-6 size-6">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+    <app-dropdown toggleText="Groups" class="col-span-2">
+      @if (groups$ | async; as groups) { @for (group of groups; track $index) {
+      <div class="flex py-4 px-6 justify-between items-center">
+        <span>{{ group }}</span> <input type="checkbox" />
+      </div>
+      } }
+    </app-dropdown>
+  </div>
+</div>
