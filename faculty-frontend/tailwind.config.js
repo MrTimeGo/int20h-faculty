@@ -2,6 +2,7 @@ const colors = {
   green: "#ADFFB0",
   yellow: "#FDFF85",
   red: "#FF9797",
+  blue: "#4D5EFF",
   purple: "#E2A6FF",
   cyan: "#6CE5FF",
   background: "#FAFAFD",
@@ -13,7 +14,6 @@ const colors = {
   "gray-60": "#4C4F56",
   "gray-70": "#303134",
   "gray-80": "#1E2023",
-  blue: "#4D5EFF",
   "blue-10": "#2735BB",
   "blue-20": "#0D1877",
   "lightblue-10": "#8EA7FF",
@@ -116,6 +116,6 @@ module.exports = {
   safelist: [
     ...Object.keys(colors).map((x) => `text-${x}`),
     ...Object.keys(colors).map((x) => `bg-${x}`),
-    //...Object.keys(colors).map(x => `border-${x}`),
+    ...Object.keys(colors).map((x) => `border-${x}`),
   ],
 };
