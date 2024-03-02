@@ -37,8 +37,5 @@ export class NavigationComponent {
   ];
 
   constructor() {
-    this.auth.user$.subscribe((user) => {
-      console.log(user);
-    });
   }
 }
