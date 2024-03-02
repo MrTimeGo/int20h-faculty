@@ -32,7 +32,7 @@ module.exports = {
       h1: [
         "60px",
         {
-          lineHeight: "0%",
+          lineHeight: "110%",
           letterSpacing: "0",
           fontWeight: "800",
         },
@@ -40,7 +40,7 @@ module.exports = {
       h2: [
         "44px",
         {
-          lineHeight: "0%",
+          lineHeight: "100%",
           letterSpacing: "0",
           fontWeight: "700",
         },
@@ -48,7 +48,7 @@ module.exports = {
       h3: [
         "36px",
         {
-          lineHeight: "0%",
+          lineHeight: "120%",
           letterSpacing: "0",
           fontWeight: "700",
         },
@@ -56,7 +56,7 @@ module.exports = {
       h4: [
         "26px",
         {
-          lineHeight: "0%",
+          lineHeight: "130%",
           letterSpacing: "0",
           fontWeight: "600",
         },
@@ -64,7 +64,7 @@ module.exports = {
       h5: [
         "22px",
         {
-          lineHeight: "0%",
+          lineHeight: "auto",
           letterSpacing: "0",
           fontWeight: "500",
         },
@@ -72,7 +72,7 @@ module.exports = {
       body: [
         "20px",
         {
-          lineHeight: "0%",
+          lineHeight: "140%",
           letterSpacing: "0",
           fontWeight: "600",
         },
@@ -80,15 +80,15 @@ module.exports = {
       secondary: [
         "1rem",
         {
-          lineHeight: "0%",
+          lineHeight: "150%",
           letterSpacing: "0",
           fontWeight: "500",
         },
       ],
-      "tags": [
+      tags: [
         "1rem",
         {
-          lineHeight: "0%",
+          lineHeight: "150%",
           letterSpacing: "0",
           fontWeight: "600",
         },
@@ -96,7 +96,7 @@ module.exports = {
       buttons: [
         "24px",
         {
-          lineHeight: "0%",
+          lineHeight: "130%",
           letterSpacing: "0",
           fontWeight: "600",
         },
@@ -104,7 +104,7 @@ module.exports = {
       "text-buttons": [
         "20px",
         {
-          lineHeight: "0%",
+          lineHeight: "140%",
           letterSpacing: "0",
           fontWeight: "600",
         },

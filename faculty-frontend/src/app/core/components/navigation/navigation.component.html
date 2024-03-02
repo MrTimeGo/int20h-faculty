@@ -1,0 +1,20 @@
+<div class="flex flex-col gap-y-10 mt-12">
+  <div class="flex flex-col">
+    @if (auth.isAuthenticated$ | async) {
+    <span
+      class="text-h3 text-gray-80"
+      >{{ (auth.user$ | async)?.['username'] }}</span
+    >
+    <app-tag
+      [text]="(auth.user$ | async)?.['app/roles']?.[0] | capitalize"
+      color="green"
+    ></app-tag>
+    } @else {
+    <button (click)="auth.loginWithRedirect()">Sign in</button>
+    }
+  </div>
+  <div class="flex flex-col">
+    <span>Menu</span>
+    <app-nav-item></app-nav-item>
+  </div>
+</div>
