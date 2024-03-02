@@ -1,6 +1,6 @@
 using Faculty.API.Context;
 using Microsoft.EntityFrameworkCore;
-
+using Auth0.ManagementApi;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +13,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<FacultyContext>(options =>
             options.UseNpgsql(builder.Configuration.GetConnectionString("Context")));
+
+builder.Services.AddSingleton(
+    new ManagementApiClient(
+        builder.Configuration["Auth0:ManagementApiToken"],
+        new Uri($"{builder.Configuration["Auth0:Authority"]}api/v2")
+));
 
 builder.Services.AddAuthentication(options =>
 {
