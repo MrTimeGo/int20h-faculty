@@ -1,22 +1,29 @@
-<p class="text-h3">Lessons</p>
+<div class="flex justify-between items-center">
+    <p class="text-h3 pt-16 pb-12">Subjects</p>
+    <button class="btn-primary">
+    <span>Create subject</span>
+    <i class="material-icons">add</i>
+    </button>
+</div>
 
 <div class="flex flex-col gap-4">
-    <span class="grid grid-cols-2 text-body text-gray-30">
-        <span>Lesson name</span>
-        <span>Group</span>
-    </span>
-    <span class="flex flex-col gap-4">
-        @for (lesson of lessons$ | async; track $index) 
-        {
-            <span class="grid grid-cols-2 bg-gray-0 border rounded-[24px] p-4">
-                <span>{{lesson.name}}</span>
-                <span>
-                    @for (group of lesson.groups; track $index) 
-                    {
-                        <span>{{group}}</span>
-                    }
-                </span>
-            </span>
+  <span class="grid grid-cols-2 text-body text-gray-30">
+    <span>Subject name</span>
+    <span>Group</span>
+  </span>
+  <span class="flex flex-col gap-4">
+    @for (lesson of lessons$ | async; track $index) {
+    <span class="grid grid-cols-2 bg-gray-0 border-gray-0 rounded-[24px] cursor-pointer hover:shadow">
+      <span class="flex justify-between pr-8">
+        <span class="py-4 px-16 text-h4">{{ lesson.name }}</span>
+        <span class="solid border-l-[1px] border-gray-10 my-2"></span>
+      </span>
+      <span class="flex gap-9 p-4">
+        @for (group of lesson.groups; track $index) {
+        <app-tag [color]="'yellow'" [text]="group"></app-tag>
         }
+      </span>
     </span>
+    }
+  </span>
 </div>
