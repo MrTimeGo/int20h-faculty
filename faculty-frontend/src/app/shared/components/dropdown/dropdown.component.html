@@ -1,0 +1,18 @@
+<div>
+  <button
+    type="button"
+    (click)="toggle = !toggle"
+    class="w-full p-6 flex justify-between items-center bg-blue hover:bg-blue-10"
+    [class]="toggle ? 'rounded-t-2xl' : 'rounded-2xl'"
+  >
+    <span class="text-body text-gray-0">{{ toggleText }}</span>
+    <i class="material-icons text-gray-0">{{
+      toggle ? "expand_more" : "expand_less"
+    }}</i>
+  </button>
+  @if (toggle) {
+  <div class="z-50 relative border border-gray-10 rounded-b-2xl">
+    <ng-content></ng-content>
+  </div>
+  }
+</div>
