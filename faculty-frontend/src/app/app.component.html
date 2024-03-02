@@ -1,6 +1,9 @@
-<div class="grid grid-cols-10 min-h-screen grid-rows-[min-content_auto]">
-  <app-header class="col-start-2 col-span-8"></app-header>
-  <main class="col-start-2 col-span-8">
+<div class="grid grid-cols-10 min-h-screen px-12 gap-x-8">
+  <app-navigation class="col-span-2"></app-navigation>
+  <main class="col-span-8">
     <router-outlet />
   </main>
 </div>
+<ngx-spinner type="square-jelly-box" [fullScreen]="true">
+  <p style="color: white">Loading... or not</p>
+</ngx-spinner>

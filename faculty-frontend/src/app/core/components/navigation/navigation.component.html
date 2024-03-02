@@ -1,0 +1,10 @@
+<div class="space-y-12 mt-12">
+  <div>
+    @if (auth.isAuthenticated$ | async) {
+    <span>{{ (auth.user$ | async)?.name }}</span>
+    <app-tag [text]="role | async"></app-tag>
+    } @else {
+    <button (click)="auth.loginWithRedirect()">Sign in</button>
+    }
+  </div>
+</div>
