@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "material-icons/iconfont/material-icons.css";
+
 @font-face {
-  font-family: 'Manrope';
+  font-family: "Manrope", sans-serif;
   font-weight: normal;
   font-style: normal;
 }

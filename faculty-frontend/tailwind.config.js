@@ -116,6 +116,6 @@ module.exports = {
   safelist: [
     ...Object.keys(colors).map((x) => `text-${x}`),
     ...Object.keys(colors).map((x) => `bg-${x}`),
-    ...Object.keys(colors).map(x => `border-${x}`),
+    ...Object.keys(colors).map((x) => `border-${x}`),
   ],
 };

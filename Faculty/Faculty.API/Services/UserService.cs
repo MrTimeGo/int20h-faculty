@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Faculty.API.Services
 {
-    public class UserService(ManagementApiClient client, IConfiguration configuration, FacultyContext context)
+    public class UserService(ManagementApiClient client, FacultyContext context)
     {
         public async Task<bool> Any()
         {
@@ -19,7 +19,7 @@ namespace Faculty.API.Services
             return users.Any();
         }
 
-        public async Task<string> CreateUser(UserModel user)
+        public async Task<string> CreateUser(CreateUserModel user)
         {
             var createdUser = await client.Users.CreateAsync(new UserCreateRequest()
             {
@@ -74,6 +74,18 @@ namespace Faculty.API.Services
             {
                 Users = userIds.ToArray(),
             });
+        }
+
+        public async Task<UserModel> GetUserById(string id)
+        {
+            var user = await client.Users.GetAsync(id);
+
+            return new UserModel
+            {
+                UserId = user.UserId,
+                Email = user.Email,
+                UserName = user.UserName,
+            };
         }
     }
 }

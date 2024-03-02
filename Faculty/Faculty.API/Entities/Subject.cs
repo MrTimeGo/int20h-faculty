@@ -1,6 +1,6 @@
 ﻿namespace Faculty.API.Entities
 {
-    public class Lesson
+    public class Subject
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;

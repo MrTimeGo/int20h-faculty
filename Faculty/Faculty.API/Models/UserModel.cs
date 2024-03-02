@@ -1,10 +1,10 @@
 ﻿namespace Faculty.API.Models
 {
-    public class UserModel()
+    public class UserModel
     {
-        public string Username { get; set; } = string.Empty;
+        public string UserId { get; set; } = string.Empty;
+        public string UserName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-        public string? Group { get; set; } = string.Empty;
+
     }
 }
