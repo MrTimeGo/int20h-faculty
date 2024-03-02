@@ -1,1 +1,8 @@
-<p>header works!</p>
+<header class="flex justify-between items-center">
+  <span>Faculty</span>
+  @if (auth.isAuthenticated$ | async) {
+  <span>Welcome, {{ (auth.user$ | async)?.nickname }}</span>
+  } @else {
+  <button (click)="auth.loginWithRedirect()">Sign in</button>
+  }
+</header>
