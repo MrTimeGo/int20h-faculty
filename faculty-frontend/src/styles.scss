@@ -17,6 +17,6 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply flex gap-2 text-buttons rounded-[16px] px-7 py-4 bg-blue text-gray-0 hover:bg-lightblue-10 active:bg-blue-10;
+    @apply flex items-center gap-2 text-buttons rounded-[16px] px-7 py-4 bg-blue text-gray-0 hover:bg-lightblue-10 active:bg-blue-10;
   }
 }

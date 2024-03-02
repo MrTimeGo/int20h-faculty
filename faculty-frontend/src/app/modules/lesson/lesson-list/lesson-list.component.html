@@ -13,12 +13,12 @@
   </span>
   <span class="flex flex-col gap-4">
     @for (lesson of lessons$ | async; track $index) {
-    <span class="grid grid-cols-2 bg-gray-0 border-gray-0 rounded-[24px] cursor-pointer hover:shadow">
+    <span class="grid grid-cols-2 bg-gray-0 border-gray-0 rounded-[24px] cursor-pointer hover:shadow-sm">
       <span class="flex justify-between pr-8">
         <span class="py-4 px-16 text-h4">{{ lesson.name }}</span>
         <span class="solid border-l-[1px] border-gray-10 my-2"></span>
       </span>
-      <span class="flex gap-9 p-4">
+      <span class="flex gap-9 p-4 items-center">
         @for (group of lesson.groups; track $index) {
         <app-tag [color]="'yellow'" [text]="group"></app-tag>
         }
