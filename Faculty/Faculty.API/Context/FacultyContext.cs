@@ -8,7 +8,7 @@ namespace Faculty.API.Context
         public DbSet<Student> Students { get; set; }
         public DbSet<Grade> Grades { get; set; }
         public DbSet<Group> Groups { get; set; }
-        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Subject> Lessons { get; set; }
         public DbSet<Work> Works { get; set; }
         public DbSet<Template> Templates { get; set; }
         public DbSet<Field> Fields { get; set; }
@@ -31,13 +31,13 @@ namespace Faculty.API.Context
                 .HasForeignKey(g => g.WorkId);
 
             modelBuilder.Entity<Work>()
-                .HasOne(w => w.Lesson)
+                .HasOne(w => w.Subject)
                 .WithMany(l => l.Works)
                 .HasForeignKey(w => w.LessonId);
 
-            modelBuilder.Entity<Lesson>()
+            modelBuilder.Entity<Subject>()
                 .HasMany(l => l.Groups)
-                .WithMany(g => g.Lessons);
+                .WithMany(g => g.Subjects);
 
             modelBuilder.Entity<Field>()
                 .HasOne(f => f.Template)

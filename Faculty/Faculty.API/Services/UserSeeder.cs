@@ -13,7 +13,7 @@ namespace Faculty.API.Services
                 return;
             }
 
-            var userFaker = new Faker<UserModel>()
+            var userFaker = new Faker<CreateUserModel>()
                 .RuleFor(u => u.Username, f => f.Name.FullName())
                 .RuleFor(u => u.Email, f => f.Internet.Email())
                 .RuleFor(u => u.Password, f => "TestTest0");
