@@ -17,9 +17,9 @@ export class NavigationComponent {
       roles: ['teacher'],
     },
     {
-      path: 'staticstics',
+      path: 'statistics',
       icon: 'insert_chart',
-      name: 'Staticstics',
+      name: 'Statistics',
       roles: ['teacher'],
     },
     {
@@ -36,6 +36,5 @@ export class NavigationComponent {
     },
   ];
 
-  constructor() {
-  }
+  constructor() {}
 }
