@@ -13,8 +13,8 @@ export class NavItemComponent implements OnInit {
   active = false;
 
   ngOnInit(): void {
-    this.route.url.subscribe((urls) => {
-      this.active = urls.map((u) => u.path).includes(this.navItemConfig!.path);
-    });
+    this.active = this.route.children.some((c) =>
+      c.snapshot.url.some((u) => u.path === this.navItemConfig!.path)
+    );
   }
 }
