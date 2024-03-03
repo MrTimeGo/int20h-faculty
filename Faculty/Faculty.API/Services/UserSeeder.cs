@@ -22,7 +22,7 @@ namespace Faculty.API.Services
             // Teachers
             var teacherRole = "teacher";
 
-            var teachers = userFaker.Generate(5);
+            var teachers = userFaker.Generate(1);
             var teacherIds = new List<string>();
             foreach (var teacher in teachers)
             {
@@ -40,7 +40,7 @@ namespace Faculty.API.Services
 
             var students = userFaker
                 .RuleFor(u => u.Group, f => f.PickRandom(groups.Select(g => g.Code)))
-                .Generate(20);
+                .Generate(3);
 
             var studentIds = new List<string>();
             foreach (var student in students)

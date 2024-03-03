@@ -1,0 +1,32 @@
+@if (student$ | async; as student) {
+<div class="flex gap-x-4 items-center mt-16">
+  <span class="text-h4 text-gray-30 cursor-pointer" routerLink=".."
+    >Students</span
+  >
+  <span class="text-h4 text-gray-30">—</span>
+  <span class="text-h3 text-gray-80">{{ student.name }}</span>
+  <app-tag color="green" [text]="student.group"></app-tag>
+  <app-tag
+    color="light-blue-30"
+    [text]="'Average Grade: ' + student.avgGrade"
+  ></app-tag>
+</div>
+<div class="flex flex-col gap-4 mt-12">
+  <label class="text-h4 text-gray-80">Additional info</label>
+  <textarea class="w-full" rows="10" [formControl]="infoControl"></textarea>
+</div>
+<div class="flex flex-col gap-2 mt-8">
+  <div class="grid grid-cols-8">
+    <span class="col-span-6 text-body text-gray-30">Subjects</span>
+    <span class="col-span-2 text-body text-gray-30">Average grade</span>
+  </div>
+  @for (kv of student.gradesBySubject | keyvalue; track $index) {
+  <div class="grid grid-cols-8 bg-gray-0 rounded-3xl p-6">
+    <div class="col-span-6 text-h4 text-gray-80">{{ kv.key }}</div>
+    <div class="col-span-2 text-h5 text-gray-80">
+      <app-tag [text]="kv.value.toString()" color="light-blue-40"></app-tag>
+    </div>
+  </div>
+  }
+</div>
+}
