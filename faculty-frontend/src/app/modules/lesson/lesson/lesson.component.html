@@ -1,0 +1,44 @@
+@if(lessonName$ | async; as lessonName){
+<div class="flex justify-between items-center">
+  <span class="pt-16 pb-12 flex gap-4 items-center">
+    <p class="text-h4 text-gray-30 cursor-pointer" (click)="redirectBack()">
+      Subjects
+    </p>
+    <div class="text-h2 text-gray-30">—</div>
+    <p class="text-h3">{{ lessonName }}</p>
+  </span>
+  <button class="btn-primary" (click)="openNewTaskDialog()">
+    <span>Add task</span>
+    <i class="material-icons">add</i>
+  </button>
+</div>
+
+<div class="flex flex-col gap-4">
+  <span class="grid grid-cols-3 text-body text-gray-30">
+    <span>Task name</span>
+    <span>Type</span>
+    <span>Deadline</span>
+  </span>
+  <span class="flex flex-col gap-4">
+    @for (work of works$ | async; track $index) {
+    <span
+      class="grid grid-cols-3 bg-gray-0 border-gray-0 rounded-[24px] cursor-pointer hover:shadow-sm"
+    >
+      <span class="flex justify-between">
+        <span class="py-4 px-16 text-h4">{{ work.name }}</span>
+        <span class="solid border-l-[1px] border-gray-10 my-2"></span>
+      </span>
+      <span class="py-4 text-h4 pl-8">
+        <app-tag [text]="work.type" [color]="'purple'"> </app-tag>
+      </span>
+      <span class="flex">
+        <span class="solid border-l-[1px] border-gray-10 my-2"></span>
+        <span class="py-4 text-h4 pl-8">{{
+          work.deadline | date : "short"
+        }}</span>
+      </span>
+    </span>
+    }
+  </span>
+</div>
+}

@@ -4,16 +4,23 @@ import { CommonModule } from '@angular/common';
 import { LessonRoutingModule } from './lesson-routing.module';
 import { LessonListComponent } from './lesson-list/lesson-list.component';
 import { SharedModule } from '../../shared/shared.module';
+import { LessonComponent } from './lesson/lesson.component';
+import { RouterModule } from '@angular/router';
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import { DialogModule } from '@angular/cdk/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 
 @NgModule({
-  declarations: [
-    LessonListComponent
-  ],
+  declarations: [LessonListComponent, LessonComponent, NewLessonComponent, NewTaskComponent],
   imports: [
     CommonModule,
     LessonRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    RouterModule,
+    DialogModule,
+    ReactiveFormsModule,
+  ],
 })
-export class LessonModule { }
+export class LessonModule {}

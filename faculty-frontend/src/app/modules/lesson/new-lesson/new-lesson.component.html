@@ -1,0 +1,29 @@
+<form class="bg-gray-0 rounded-[24px] p-10" [formGroup]="newLesson">
+    <span class=" pb-12 flex justify-between" >
+        <p class="text-h3">Create Subject</p>
+        <i class="material-icons cursor-pointer" (click)="dialogRef.close()">close</i>
+    </span>
+    <span class="text-h5">Subject Name</span>
+    <input placeholder="Exam" class="mb-10" [formControl]="newLesson.controls.name">
+        <span class="text-h5">Group(s)</span>
+   <app-dropdown
+    placeholder="Type"
+    class=""
+    [formControl]="newLesson.controls.groups"
+    [toggleText]="newLesson.controls.groups.value?.length ? newLesson.controls.groups.value!.join(', ') : 'Groups'"
+  >
+    @for (item of groups$ | async; track $index) {
+    <div class="grid grid-cols-2 p-6">
+      <input
+        type="checkbox"
+        (change)="onCheckboxClicked(item)"
+        [checked]="newLesson.controls.groups.value?.includes(item)"
+      /><span>{{ item }}</span>
+    </div>
+    }
+  </app-dropdown>
+    <button class="btn-primary w-full justify-center">
+        <p>Create</p>
+        <i class="material-icons">check</i>
+    </button>
+</form>
