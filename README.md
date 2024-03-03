@@ -3,11 +3,14 @@
 Hi from Schrödinger.NET 👋
 
 Here you can find useful links!
-_Site link:__(https://orca-app-9usbc.ondigitalocean.app/)
-_Design link:__([https://orca-app-9usbc.ondigitalocean.app/](https://www.figma.com/file/jGWQIsRUkgNzGdmtrvRyRo/WebDev?type=design&node-id=0%3A1&mode=design&t=ftGombvzLKJ7pkez-1))
+
+Site link:__(https://orca-app-9usbc.ondigitalocean.app/)
+
+Design link:__([https://orca-app-9usbc.ondigitalocean.app/](https://www.figma.com/file/jGWQIsRUkgNzGdmtrvRyRo/WebDev?type=design&node-id=0%3A1&mode=design&t=ftGombvzLKJ7pkez-1))
 
 
 In order to make it convenient to view our functionality, we have prepared a test user-teacher for you: 
+
 Login: melany_osinski@hotmail.com
 Password: TestTest0
 
