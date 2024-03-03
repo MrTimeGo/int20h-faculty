@@ -1,9 +1,12 @@
 @if (navItemConfig) {
 <a
   [routerLink]="navItemConfig.path"
-  class="px-6 py-4 flex items-center gap-x-2 rounded-xl hover:bg-lightblue-40 cursor-pointer"
+  class="px-6 py-4 flex items-center gap-x-2 rounded-xl cursor-pointer"
+  [class]="
+    active ? 'text-gray-0 bg-blue hover:bg-blue-10' : 'hover:bg-lightblue-40'
+  "
 >
-  <i class="material-icons" [class]="'text-blue'">{{
+  <i class="material-icons" [class]="active ? 'text-gray-0' : 'text-blue'">{{
     navItemConfig.iconName
   }}</i>
   <span class="text-gray-50 text-h5">{{ navItemConfig.name }}</span>
