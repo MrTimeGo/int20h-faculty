@@ -5,6 +5,11 @@ import { hasRoleGuard } from './core/guards/has-role.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'lessons',
+    pathMatch: 'full',
+  },
+  {
     path: 'lessons',
     //canActivate: [AuthGuard],
     loadChildren: () =>
