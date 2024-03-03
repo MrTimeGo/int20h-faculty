@@ -16,5 +16,11 @@ export class NavItemComponent implements OnInit {
     this.active = this.route.children.some((c) =>
       c.snapshot.url.some((u) => u.path === this.navItemConfig!.path)
     );
+
+    this.route.url.subscribe(() => {
+      this.active = this.route.children.some((c) =>
+        c.snapshot.url.some((u) => u.path === this.navItemConfig!.path)
+      );
+    });
   }
 }

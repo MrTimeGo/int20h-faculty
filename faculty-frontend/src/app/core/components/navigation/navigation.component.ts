@@ -16,24 +16,24 @@ export class NavigationComponent {
       name: 'Students',
       roles: ['teacher'],
     },
-    {
-      path: 'statistics',
-      icon: 'insert_chart',
-      name: 'Statistics',
-      roles: ['teacher'],
-    },
+    // {
+    //   path: 'statistics',
+    //   icon: 'insert_chart',
+    //   name: 'Statistics',
+    //   roles: ['teacher'],
+    // },
     {
       path: 'lessons',
       icon: 'featured_play_list',
       name: 'Lessons',
       roles: ['teacher', 'student'],
     },
-    {
-      path: 'announcements',
-      icon: 'notifications',
-      name: 'Announcements',
-      roles: ['teacher'],
-    },
+    // {
+    //   path: 'announcements',
+    //   icon: 'notifications',
+    //   name: 'Announcements',
+    //   roles: ['teacher'],
+    // },
   ];
 
   constructor() {}
