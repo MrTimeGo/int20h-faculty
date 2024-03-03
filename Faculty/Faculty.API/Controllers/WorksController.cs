@@ -9,7 +9,7 @@ namespace Faculty.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkController(FacultyContext context) : ControllerBase
+    public class WorksController(FacultyContext context) : ControllerBase
     {
         [HttpGet("subject/{lessonId}")]
         public async Task<List<WorkShortInfo>> GetWorksByLessonId(Guid lessonId)
