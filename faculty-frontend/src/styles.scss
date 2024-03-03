@@ -11,8 +11,8 @@
 }
 
 body {
-  font-family: 'Manrope';
-  background-color: #FBFBFF;
+  font-family: "Manrope";
+  background-color: #fbfbff;
 }
 
 @layer components {
@@ -21,6 +21,10 @@ body {
   }
 
   input {
+    @apply w-full p-6 text-body placeholder:text-gray-30 rounded-2xl border-2 border-gray-20 text-gray-60 focus-within:outline-none focus:border-blue;
+  }
+
+  textarea {
     @apply w-full p-6 text-body placeholder:text-gray-30 rounded-2xl border-2 border-gray-20 text-gray-60 focus-within:outline-none focus:border-blue;
   }
 }
