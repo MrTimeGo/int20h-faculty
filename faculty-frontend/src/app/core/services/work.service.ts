@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { NewWork, WorkShortInfo, WorkType } from '../models/workShortInfo';
-import { of } from 'rxjs';
+import { NewWork, WorkShortInfo } from '../models/workShortInfo';
 
 @Injectable({
   providedIn: 'root',

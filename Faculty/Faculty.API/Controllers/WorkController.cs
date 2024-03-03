@@ -22,5 +22,20 @@ namespace Faculty.API.Controllers
                 Type = w.Type
             }).ToListAsync();
         }
+
+        [HttpGet("{:id}")]
+        public async Task<ActionResult<WorkDetailedInfoDto>> GetDetailedDto([FromRoute] Guid id)
+        {
+            var work = await context.Works.Select(w => new WorkDetailedInfoDto()
+            {
+                Description = w.Description,
+                Deadline = w.Deadline,
+                Type = w.Type,
+                Name = w.Name,
+                Id = w.Id
+            }).FirstOrDefaultAsync(w => w.Id == id);
+
+            return work is not null ? Ok(work) : NotFound();
+        }
     }
 }

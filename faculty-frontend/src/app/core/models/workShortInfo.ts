@@ -5,6 +5,10 @@ export interface WorkShortInfo {
   type: WorkType;
 }
 
+export interface WorkDetailedInfo extends WorkShortInfo {
+  description: string;
+}
+
 export enum WorkType {
   Homework = 'Homework',
   Lab = 'Lab',
