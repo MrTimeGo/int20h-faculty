@@ -22,12 +22,12 @@ export class LessonListComponent {
   ]);
 
   redirectToLesson(id: string) {
-    console.log('here');
     this.router.navigate([`lessons/${id}`]);
   }
   openNewLessonDialog() {
     this.dialog.open(NewLessonComponent, {
       minWidth: '300px',
+      width: '50vw'
     });
   }
 }

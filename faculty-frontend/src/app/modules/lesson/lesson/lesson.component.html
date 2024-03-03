@@ -1,11 +1,13 @@
 @if(lessonName$ | async; as lessonName){
 <div class="flex justify-between items-center">
   <span class="pt-16 pb-12 flex gap-4 items-center">
-    <p class="text-h4 text-gray-30 cursor-pointer" (click)="redirectBack()">Subjects</p>
+    <p class="text-h4 text-gray-30 cursor-pointer" (click)="redirectBack()">
+      Subjects
+    </p>
     <div class="text-h2 text-gray-30">—</div>
     <p class="text-h3">{{ lessonName }}</p>
   </span>
-  <button class="btn-primary">
+  <button class="btn-primary" (click)="openNewTaskDialog()">
     <span>Add task</span>
     <i class="material-icons">add</i>
   </button>
@@ -31,7 +33,9 @@
       </span>
       <span class="flex">
         <span class="solid border-l-[1px] border-gray-10 my-2"></span>
-        <span class="py-4 text-h4 pl-8">{{ work.deadline | date:'short' }}</span>
+        <span class="py-4 text-h4 pl-8">{{
+          work.deadline | date : "short"
+        }}</span>
       </span>
     </span>
     }

@@ -8,16 +8,19 @@ import { LessonComponent } from './lesson/lesson.component';
 import { RouterModule } from '@angular/router';
 import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { DialogModule } from '@angular/cdk/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewTaskComponent } from './new-task/new-task.component';
 
 
 @NgModule({
-  declarations: [LessonListComponent, LessonComponent, NewLessonComponent],
+  declarations: [LessonListComponent, LessonComponent, NewLessonComponent, NewTaskComponent],
   imports: [
     CommonModule,
     LessonRoutingModule,
     SharedModule,
     RouterModule,
     DialogModule,
+    ReactiveFormsModule,
   ],
 })
 export class LessonModule {}

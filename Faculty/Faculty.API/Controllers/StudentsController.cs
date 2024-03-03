@@ -13,7 +13,7 @@ namespace Faculty.API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<StudentShortDto>>> GetStudentsShort([FromQuery] string? searchTerm, [FromQuery] List<string> groups)
         {
-            return await service.GetStudentShortDto(searchTerm, groups, sortBy);
+            return await service.GetStudentShortDto(searchTerm, groups);
         }
 
         [HttpGet("{id}")]
