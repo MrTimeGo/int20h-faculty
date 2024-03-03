@@ -6,11 +6,7 @@
     >
   </span>
   <span class="text-h5">Task Name</span>
-  <input
-    placeholder="Exam"
-    class=""
-    [formControl]="newTask.controls.name"
-  />
+  <input placeholder="Exam" class="" [formControl]="newTask.controls.name" />
   <span class="text-h5">Type</span>
   <app-dropdown
     placeholder="Type"
@@ -40,7 +36,7 @@
     class=""
     [formControl]="newTask.controls.deadline"
   />
-  <button class="btn-primary w-full justify-center">
+  <button class="btn-primary w-full justify-center" (click)="submit()">
     <p>Create</p>
     <i class="material-icons">check</i>
   </button>

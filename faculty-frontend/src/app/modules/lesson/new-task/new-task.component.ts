@@ -1,5 +1,5 @@
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { WorkType } from '../../../core/models/workShortInfo';
 
@@ -23,4 +23,6 @@ export class NewTaskComponent {
   onRadioClicked(type: WorkType) {
     this.newTask.patchValue({ type });
   }
+
+  submit() {}
 }

@@ -30,6 +30,7 @@ export class LessonComponent {
     this.dialog.open(NewTaskComponent, {
       minWidth: '300px',
       width: '50vw',
+      data: this.lessonId,
     });
   }
 }

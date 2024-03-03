@@ -3,3 +3,8 @@ export interface SubjectShort {
   name: string;
   groups: string[];
 }
+
+export interface SubjectShortWithoutId {
+  name: string;
+  groups: string[];
+}

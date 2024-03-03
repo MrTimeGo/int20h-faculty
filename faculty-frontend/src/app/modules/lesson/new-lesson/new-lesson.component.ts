@@ -3,6 +3,8 @@ import { Component, inject } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 import { GroupsService } from '../../../core/services/groups.service';
+import { SubjectsService } from '../../../core/services/subjects.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-lesson',
@@ -11,9 +13,10 @@ import { GroupsService } from '../../../core/services/groups.service';
 })
 export class NewLessonComponent {
   private groupService = inject(GroupsService);
-  //groups$: Observable<string[]> = this.groupService.getAllGroups();
+  private subjectService = inject(SubjectsService);
+  groups$: Observable<string[]> = this.groupService.getAllGroups();
 
-  groups$: Observable<string[]> = of(['KP-01', 'KP-02']);
+  //groups$: Observable<string[]> = of(['KP-01', 'KP-02']);
   constructor(public dialogRef: DialogRef<string>) {}
 
   newLesson = new FormGroup({
@@ -31,5 +34,12 @@ export class NewLessonComponent {
     }
 
     this.newLesson.controls.groups.patchValue(newGroups);
+  }
+
+  submit() {
+    this.subjectService.addSubject({
+      name: this.newLesson.value.name!,
+      groups: this.newLesson.value.groups!,
+    });
   }
 }

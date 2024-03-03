@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { SubjectShort } from '../../../core/models/subject';
 import { Router } from '@angular/router';
 import { Dialog } from '@angular/cdk/dialog';
 import { NewLessonComponent } from '../new-lesson/new-lesson.component';
+import { SubjectsService } from '../../../core/services/subjects.service';
 
 @Component({
   selector: 'app-lesson-list',
@@ -11,14 +12,9 @@ import { NewLessonComponent } from '../new-lesson/new-lesson.component';
   styleUrl: './lesson-list.component.scss',
 })
 export class LessonListComponent {
-  /**
-   *
-   */
+  private subjectService = inject(SubjectsService);
   constructor(private router: Router, public dialog: Dialog) {}
-  lessons$: Observable<SubjectShort[]> = of([
-    { id: 'gdfgd-dgdgdf-dgdg', name: 'ker', groups: ['kp-01', 'kp-02'] },
-    { id: 'gdfgd-dgdgdf-erere', name: 'chi', groups: ['kp-01'] },
-  ]);
+  lessons$: Observable<SubjectShort[]> = this.subjectService.getSubjects();
 
   redirectToLesson(id: string) {
     this.router.navigate([`lessons/${id}`]);

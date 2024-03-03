@@ -11,7 +11,7 @@ namespace Faculty.API.Controllers
     [ApiController]
     public class WorkController(FacultyContext context) : ControllerBase
     {
-        [HttpGet("{lessonId}")]
+        [HttpGet("subject/{lessonId}")]
         public async Task<List<WorkShortInfo>> GetWorksByLessonId(Guid lessonId)
         {
             return await context.Works.Where(w => w.LessonId == lessonId).Select(w => new WorkShortInfo

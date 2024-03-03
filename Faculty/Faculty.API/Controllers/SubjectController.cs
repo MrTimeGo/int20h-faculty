@@ -20,10 +20,30 @@ namespace Faculty.API.Controllers
             return Ok(lessonName);
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult<SubjectShortDto>> GetSubjectShort()
-        //{
-        //    context.Subjects
-        //}
+        [HttpGet]
+        public async Task<ActionResult<List<SubjectShortDto>>> GetSubjectShort()
+        {
+            return await context.Subjects.Select(s=>new SubjectShortDto {
+                Id = s.Id, 
+                Name = s.Name, 
+                Groups = s.Groups.Select(g=>g.Code).ToList() 
+            })
+                .ToListAsync();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateSubject(SubjectShortWithoutId subject)
+        {
+            var createdSubject = context.Subjects.Add(new Entities.Subject
+            {
+                Name = subject.Name,
+                Groups = subject.Groups.Select(g => new Entities.Group
+                {
+                    Code = g
+                }).ToList()
+            });
+            await context.SaveChangesAsync();
+            return Ok();
+        }
     }
 }
