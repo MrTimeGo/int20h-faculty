@@ -6,18 +6,18 @@ import { LessonListComponent } from './lesson-list/lesson-list.component';
 import { SharedModule } from '../../shared/shared.module';
 import { LessonComponent } from './lesson/lesson.component';
 import { RouterModule } from '@angular/router';
+import { NewLessonComponent } from './new-lesson/new-lesson.component';
+import { DialogModule } from '@angular/cdk/dialog';
 
 
 @NgModule({
-  declarations: [
-    LessonListComponent,
-    LessonComponent
-  ],
+  declarations: [LessonListComponent, LessonComponent, NewLessonComponent],
   imports: [
     CommonModule,
     LessonRoutingModule,
     SharedModule,
-    RouterModule
-  ]
+    RouterModule,
+    DialogModule,
+  ],
 })
-export class LessonModule { }
+export class LessonModule {}
