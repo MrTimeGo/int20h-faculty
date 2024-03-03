@@ -10,10 +10,11 @@ import { NewLessonComponent } from './new-lesson/new-lesson.component';
 import { DialogModule } from '@angular/cdk/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { GradesListComponent } from './grades-list/grades-list.component';
 
 
 @NgModule({
-  declarations: [LessonListComponent, LessonComponent, NewLessonComponent, NewTaskComponent],
+  declarations: [LessonListComponent, LessonComponent, NewLessonComponent, NewTaskComponent, GradesListComponent],
   imports: [
     CommonModule,
     LessonRoutingModule,

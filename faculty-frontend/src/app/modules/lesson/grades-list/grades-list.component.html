@@ -1,0 +1,23 @@
+@if (work$ | async; as work){
+<div class="mt-12 text-gray-60">{{ work.name }}</div>
+<div class="flex flex-col gap-y-2">
+  <label>Task info</label>
+  <textarea rows="5" disabled [value]="work.description"></textarea>
+</div>
+
+@if (students$ | async; as students) {
+<div class="grid grid-cols-8">
+  <span class="col-span-6 text-body text-gray-30">Subjects</span>
+  <span class="col-span-2 text-body text-gray-30">Average grade</span>
+</div>
+@for (student of students; track $index) {
+<div class="grid grid-cols-8 bg-gray-0 rounded-3xl p-6">
+  <div class="col-span-6 text-h4 text-gray-80">{{ student.name }}</div>
+  <div class="col-span-2 text-h5 text-gray-80">
+    <input
+      [value]="grades.get(student.id)"
+      (change)="setGrade(student.id, 0)"
+    />
+  </div>
+</div>
+} } }

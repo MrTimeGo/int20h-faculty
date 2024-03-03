@@ -11,7 +11,7 @@ namespace Faculty.API.Controllers
     [ApiController]
     public class WorkController(FacultyContext context) : ControllerBase
     {
-        [HttpGet("{lessonId}")]
+        [HttpGet("subject/{lessonId}")]
         public async Task<List<WorkShortInfo>> GetWorksByLessonId(Guid lessonId)
         {
             return await context.Works.Where(w => w.LessonId == lessonId).Select(w => new WorkShortInfo
@@ -21,6 +21,21 @@ namespace Faculty.API.Controllers
                 Deadline = w.Deadline,
                 Type = w.Type
             }).ToListAsync();
+        }
+
+        [HttpGet("{:id}")]
+        public async Task<ActionResult<WorkDetailedInfoDto>> GetDetailedDto([FromRoute] Guid id)
+        {
+            var work = await context.Works.Select(w => new WorkDetailedInfoDto()
+            {
+                Description = w.Description,
+                Deadline = w.Deadline,
+                Type = w.Type,
+                Name = w.Name,
+                Id = w.Id
+            }).FirstOrDefaultAsync(w => w.Id == id);
+
+            return work is not null ? Ok(work) : NotFound();
         }
     }
 }
