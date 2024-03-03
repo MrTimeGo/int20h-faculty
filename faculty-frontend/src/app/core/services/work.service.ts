@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { NewWork, WorkShortInfo } from '../models/workShortInfo';
+import {
+  NewWork,
+  WorkDetailedInfo,
+  WorkShortInfo,
+} from '../models/workShortInfo';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +17,10 @@ export class WorkService {
 
   getWorksByLessonId(lessonId: string) {
     return this.http.get<WorkShortInfo[]>(`${this.baseUrl}/${lessonId}`);
+  }
+
+  getWorkShortById(workId: string) {
+    return this.http.get<WorkDetailedInfo>(`${this.baseUrl}/${workId}`);
   }
 
   addWork(work: NewWork) {
