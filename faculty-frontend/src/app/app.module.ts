@@ -22,15 +22,15 @@ import { NgxSpinnerModule } from 'ngx-spinner';
       authorizationParams: {
         redirect_uri: window.location.origin,
 
-        audience: environment.apiUrl,
+        audience: environment.auth0.audience,
       },
       httpInterceptor: {
         allowedList: [
           {
-            uri: `${environment.apiUrl}/*`,
+            uri: `${environment.auth0.audience}/*`,
             tokenOptions: {
               authorizationParams: {
-                audience: environment.apiUrl,
+                audience: environment.auth0.audience,
               },
             },
           },
