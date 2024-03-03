@@ -34,13 +34,11 @@ namespace Faculty.API.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateSubject(SubjectShortWithoutId subject)
         {
+            var groups = await context.Groups.Where(g => subject.Groups.Contains(g.Code)).ToListAsync();
             var createdSubject = context.Subjects.Add(new Entities.Subject
             {
                 Name = subject.Name,
-                Groups = subject.Groups.Select(g => new Entities.Group
-                {
-                    Code = g
-                }).ToList()
+                Groups = groups
             });
             await context.SaveChangesAsync();
             return Ok();
