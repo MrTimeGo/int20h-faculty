@@ -8,7 +8,7 @@
         public DateTime Deadline { get; set; }
         public WorkType Type { get; set; }
         public Guid LessonId { get; set; }
-        public Subject Subject { get; set; } = new Subject();
+        public Subject Subject { get; set; } = null!;
         public ICollection<Grade> Grades { get; set; } = new List<Grade>();
     }
 }

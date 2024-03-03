@@ -23,6 +23,7 @@ builder.Services.AddSingleton(
 
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<UserSeeder>();
+builder.Services.AddScoped<StudentService>();
 
 builder.Services.AddAuthentication(options =>
 {

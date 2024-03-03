@@ -1,18 +1,33 @@
 ﻿using Faculty.API.Context;
 using Faculty.API.Dto;
+using Faculty.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Faculty.API.Services
 {
     public class StudentService(FacultyContext context, UserService userService)
     {
-        public async Task<List<StudentShortDto>> GetStudentShortDto(string searchTerm, List<string> groups)
+        public async Task<List<StudentShortDto>> GetStudentShortDto(string? searchTerm, List<string> groups)
         {
             var students = await context.Students.Include(s => s.Group).Where(s => groups.Count == 0 ? true : groups.Contains(s.Group.Code)).ToListAsync();
 
-            var users = await Task.WhenAll(students.Select(s => userService.GetUserById(s.UserId)));
+            var userModels = new List<UserModel>();
 
-            return users.Where(u => u.UserName.Contains(searchTerm))
+            foreach (var student in students)
+            {
+                var user = await userService.GetUserById(student.UserId);
+                if (user is not null)
+                {
+                    userModels.Add(user);
+                }
+            }
+            var users = userModels.AsEnumerable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                users = users.Where(u => u.UserName.Contains(searchTerm));
+            }
+            return users
                 .Join(students, u => u.UserId, s => s.UserId, (u, s) => new StudentShortDto()
                 {
                     Email = u.Email,
@@ -38,6 +53,11 @@ namespace Faculty.API.Services
             }
 
             var user = await userService.GetUserById(student.UserId);
+
+            if (user is null)
+            {
+                throw new ArgumentException($"User with id {student.UserId} not found");
+            }
 
             var gradesBySubject = student.Grades.GroupBy(g => g.Work.Subject.Name)
                 .ToDictionary(

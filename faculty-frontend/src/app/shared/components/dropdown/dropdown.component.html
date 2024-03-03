@@ -1,4 +1,4 @@
-<div>
+<div class="relative">
   <button
     type="button"
     (click)="toggle = !toggle"
@@ -11,7 +11,9 @@
     }}</i>
   </button>
   @if (toggle) {
-  <div class="z-50 relative border border-gray-10 rounded-b-2xl">
+  <div
+    class="z-50 absolute border border-gray-10 rounded-b-2xl w-full bg-gray-0"
+  >
     <ng-content></ng-content>
   </div>
   }

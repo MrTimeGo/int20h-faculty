@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Faculty.API.Services
 {
-    public class UserService(ManagementApiClient client, FacultyContext context)
+    public class UserService(ManagementApiClient client, FacultyContext context, ILogger<UserService> logger)
     {
         public async Task<bool> Any()
         {
@@ -30,9 +30,9 @@ namespace Faculty.API.Services
                 VerifyEmail = true,
             });
 
-            if (user.Group is not null)
+            if (!string.IsNullOrEmpty(user.Group))
             {
-                if (!await context.Groups.Where(g => g.Code == user.Group).AnyAsync())
+                if (!(await context.Groups.Where(g => g.Code == user.Group).AnyAsync()))
                 {
                     context.Groups.Add(new Group
                     {
@@ -76,16 +76,24 @@ namespace Faculty.API.Services
             });
         }
 
-        public async Task<UserModel> GetUserById(string id)
+        public async Task<UserModel?> GetUserById(string id)
         {
-            var user = await client.Users.GetAsync(id);
-
-            return new UserModel
+            try
             {
-                UserId = user.UserId,
-                Email = user.Email,
-                UserName = user.UserName,
-            };
+                var user = await client.Users.GetAsync(id);
+
+                return new UserModel
+                {
+                    UserId = user.UserId,
+                    Email = user.Email,
+                    UserName = user.UserName,
+                };
+            } 
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "Error occured");
+                return null;
+            }
         }
     }
 }
