@@ -7,7 +7,7 @@ namespace Faculty.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubjectController(FacultyContext context) : ControllerBase
+    public class SubjectsController(FacultyContext context) : ControllerBase
     {
         [HttpGet("{id}")]
         public async Task<ActionResult<string>> GetSubjectName(Guid id)

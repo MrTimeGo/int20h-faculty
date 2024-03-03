@@ -37,9 +37,11 @@ export class NewLessonComponent {
   }
 
   submit() {
-    this.subjectService.addSubject({
-      name: this.newLesson.value.name!,
-      groups: this.newLesson.value.groups!,
-    });
+    this.subjectService
+      .addSubject({
+        name: this.newLesson.value.name!,
+        groups: this.newLesson.value.groups!,
+      })
+      .subscribe();
   }
 }
