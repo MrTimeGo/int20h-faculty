@@ -22,6 +22,7 @@ export class LessonListComponent {
   ]);
 
   redirectToLesson(id: string){
+    console.log('here')
     this.router.navigate([`lessons/${id}`]);
   }
 }

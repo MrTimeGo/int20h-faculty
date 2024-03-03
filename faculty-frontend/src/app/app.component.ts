@@ -20,7 +20,7 @@ export class AppComponent {
     .subscribe(([loading, user]) => {
       loading ? this.spinner.show() : this.spinner.hide();
       if (!user) {
-        this.auth.loginWithRedirect();
+        //this.auth.loginWithRedirect();
       }
     });
   }

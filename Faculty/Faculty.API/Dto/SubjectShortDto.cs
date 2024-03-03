@@ -4,6 +4,6 @@
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public 
+        public List<string> Groups { get; set; } = new List<string>();
     }
 }

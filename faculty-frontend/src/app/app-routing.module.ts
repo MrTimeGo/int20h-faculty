@@ -6,7 +6,7 @@ import { hasRoleGuard } from './core/guards/has-role.guard';
 const routes: Routes = [
   {
     path: 'lessons',
-    canActivate: [AuthGuard],
+    //canActivate: [AuthGuard],
     loadChildren: () =>
       import('./modules/lesson/lesson.module').then((m) => m.LessonModule),
   },

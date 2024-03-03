@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Faculty.API.Context;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Faculty.API.Controllers
 {
-    public class LessonController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class LessonController(FacultyContext context) : ControllerBase
     {
-        public IActionResult Index()
+        [HttpGet("{id}")]
+        public async Task<ActionResult<string>> GetLessonName(Guid id)
         {
-            return View();
+            var lessonName = await context.Lessons.Where(l => l.Id == id).Select(l => l.Name).FirstOrDefaultAsync();
+            if(lessonName == null)
+            {
+                return NotFound();
+            }
+            return Ok(lessonName);
         }
     }
 }
