@@ -16,7 +16,9 @@ export class WorkService {
   baseUrl = `${environment.apiUrl}/api/works`;
 
   getWorksByLessonId(lessonId: string) {
-    return this.http.get<WorkShortInfo[]>(`${this.baseUrl}/${lessonId}`);
+    return this.http.get<WorkShortInfo[]>(
+      `${this.baseUrl}/subject/${lessonId}`
+    );
   }
 
   getWorkShortById(workId: string) {
